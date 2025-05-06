@@ -12,8 +12,8 @@ renamed as (
         company,
         sector,
         date_lead,
-        opportunity_date,
-        date_customer,
+        opportunity_date AS date_opportunity,
+        CAST(date_customer AS DATE) AS date_customer,
         date_lost
 
     from source

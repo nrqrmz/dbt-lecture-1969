@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        compny_name,
+        compny_name AS company,
         priority
 
     from source
