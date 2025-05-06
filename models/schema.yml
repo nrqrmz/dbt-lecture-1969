@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw_data_circle
+    description: Circle sportwear dataset
+    tables:
+      - name: funnel
+        identifier: raw_cc_funnel
+        description: funnel table
+      - name: priority
+        identifier: raw_cc_funnel_priority
+        description: priority table with company name
+
+models:
+  - name: stg_raw__funnel
+    description: clean funnel data
+    columns:
+      - name: company
+        description: primary key
+        tests:
+          - unique
+          - not_null
+      - name: date_lead
+        description: lead date
+        tests:
+          - not_null
+  - name: stg_raw__priority
+    description: clean priority data
+    columns:
+      - name: company
+        description: primary
+        tests:
+          - unique
+          - not_null
+      - name: priority
+        description: funnel priority
+        tests:
+          - accepted_values:
+              values: ['Low', 'Medium', 'High']
+          
