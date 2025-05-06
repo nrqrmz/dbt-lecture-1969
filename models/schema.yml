@@ -3,8 +3,11 @@ version: 2
 sources:
   - name: raw
     schema: raw_data_circle
+    description: Circle sportwear dataset
     tables:
       - name: funnel
         identifier: raw_cc_funnel
+        description: funnel table
       - name: priority
         identifier: raw_cc_funnel_priority
+        description: priority table with company name
