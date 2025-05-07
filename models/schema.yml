@@ -34,7 +34,7 @@ models:
           - unique
           - not_null
       - name: priority
-        description: funnel priority (Low, Medium, High)
+        description: funnel priority (Low, Medium, High) accept values
         tests:
           - accepted_values:
               values: ['Low', 'Medium', 'High']
