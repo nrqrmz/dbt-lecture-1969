@@ -27,7 +27,7 @@ SELECT
     WHEN date_customer IS NOT NULL THEN 1
     ELSE NULL
   END AS opportunity2customer
-  ,DATE_DIFF(date_customer,date_lead,DAY) AS lead2customer_time
-  ,DATE_DIFF(date_opportunity,date_lead,DAY) AS lead2opportunity_time
-  ,DATE_DIFF(date_customer,date_opportunity,DAY) AS opportunity2customer_time
+  , {{ day_diff('date_customer','date_lead') }} as lead2customer_time
+  , {{ day_diff('date_opportunity', 'date_lead') }} as lead2opportunity_time
+  , {{ day_diff('date_customer', 'date_opportunity') }} as opportunity2customer_time
 FROM {{ref("stg_raw__funnel")}}
