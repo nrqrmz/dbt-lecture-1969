@@ -38,4 +38,5 @@ models:
         tests:
           - accepted_values:
               values: ['Low', 'Medium', 'High']
+          - dbt_utils.not_empty_string
           
